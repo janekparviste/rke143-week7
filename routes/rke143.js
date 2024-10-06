@@ -10,10 +10,13 @@ router.post('/', (req, res) => {
 
     //invalid credentials
 
-    if(req.body.name !== 'rke' || req.body.code !== "143") {
+    if(req.body.name === 'rke' && req.body.code === "143") {
+        res.status(200).json({rke143Data});        
+    } else if(req.body.nimi === 'rke' && req.body.kood === "143") {
+        res.status(200).json({rke143Data});        
+    }    
+    else {
         res.status(200).json({message: "invalid credentials"}); 
-    } else {
-        res.status(200).json({rke143Data});
     }    
 });
 
